@@ -1,3 +1,4 @@
+import 'package:cinematri_app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class GetStarted extends StatelessWidget {
@@ -13,13 +14,61 @@ class GetStarted extends StatelessWidget {
             height: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.cover,
                 image: AssetImage(
                   'assets/image_get_started.png',
                 ),
               ),
             ),
           ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Watch and Get Fun',
+                  style: whiteTextStyle.copyWith(
+                    fontSize: 32,
+                    fontWeight: semiBold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Boost your mood and make a good\nday by watching our greatest movie',
+                  style: whiteTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: light,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 50,
+                    bottom: 80,
+                  ),
+                  width: 220,
+                  height: 55,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      backgroundColor: kPurpleColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                    ),
+                    child: Text(
+                      'Get Started',
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: medium,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
