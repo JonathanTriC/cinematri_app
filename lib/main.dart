@@ -1,4 +1,5 @@
 import 'package:cinematri_app/ui/pages/get_started_page.dart';
+import 'package:cinematri_app/ui/pages/sign_up_page.dart';
 import 'package:cinematri_app/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashPage(),
         '/get-started': (context) => const GetStarted(),
+        '/sign-up': (context) => const SignUpPage(),
       },
     );
   }
