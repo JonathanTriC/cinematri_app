@@ -13,7 +13,7 @@ Color kGreyColor = const Color(0xff9698A9);
 Color kGreenColor = const Color(0xff06FF00);
 Color kRedColor = const Color(0xffef233c);
 Color kAvailableColor = const Color(0xffE0D9FF);
-Color kUnavailableColor = const Color(0xffEBECF1);
+Color kUnavailableColor = const Color(0xff4F5877);
 Color kTransparentColor = Colors.transparent;
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
@@ -32,7 +32,7 @@ TextStyle redTextStyle = GoogleFonts.poppins(
   color: kRedColor,
 );
 TextStyle purpleTextStyle = GoogleFonts.poppins(
-  color: kPrimaryColor,
+  color: kPurpleColor,
 );
 
 FontWeight light = FontWeight.w300;
