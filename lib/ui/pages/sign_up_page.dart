@@ -1,5 +1,6 @@
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
+import 'package:cinematri_app/ui/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -24,179 +25,31 @@ class SignUpPage extends StatelessWidget {
 
     Widget inputSection() {
       Widget nameInput() {
-        return Container(
-          margin: const EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Full Name',
-                style: whiteTextStyle,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: kWhiteColor,
-                style: whiteTextStyle,
-                decoration: InputDecoration(
-                  hintText: 'Your Full Name',
-                  hintStyle: greyTextStyle,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kWhiteColor,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kPurpleColor,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        return const CustomTextFormField(
+          title: 'Full Name',
+          hintText: 'Your full name',
         );
       }
 
       Widget emailInput() {
-        return Container(
-          margin: const EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Email',
-                style: whiteTextStyle,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: kWhiteColor,
-                style: whiteTextStyle,
-                decoration: InputDecoration(
-                  hintText: 'Your Email',
-                  hintStyle: greyTextStyle,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kWhiteColor,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kPurpleColor,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        return const CustomTextFormField(
+          title: 'Email Address',
+          hintText: 'Your email address',
         );
       }
 
       Widget passwordInput() {
-        return Container(
-          margin: const EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Password',
-                style: whiteTextStyle,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: kWhiteColor,
-                style: whiteTextStyle,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: 'Your Password',
-                  hintStyle: greyTextStyle,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kWhiteColor,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kPurpleColor,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        return const CustomTextFormField(
+          title: 'Password',
+          hintText: 'Your password',
+          obsecureText: true,
         );
       }
 
       Widget cityInput() {
-        return Container(
-          margin: const EdgeInsets.only(
-            bottom: 20,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'City',
-                style: whiteTextStyle,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              TextFormField(
-                cursorColor: kWhiteColor,
-                style: whiteTextStyle,
-                decoration: InputDecoration(
-                  hintText: 'Your City',
-                  hintStyle: greyTextStyle,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kWhiteColor,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      defaultRadius,
-                    ),
-                    borderSide: BorderSide(
-                      color: kPurpleColor,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        return const CustomTextFormField(
+          title: 'City',
+          hintText: 'Your city',
         );
       }
 
@@ -208,10 +61,8 @@ class SignUpPage extends StatelessWidget {
           ),
           title: 'Get Started',
           onPressed: () {
-            Navigator.pushNamed(
-              context,
-              '/main',
-            );
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/main', (route) => false);
           },
         );
       }
