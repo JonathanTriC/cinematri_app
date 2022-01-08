@@ -6,6 +6,7 @@ import 'package:cinematri_app/ui/pages/get_started_page.dart';
 import 'package:cinematri_app/ui/pages/main_page.dart';
 import 'package:cinematri_app/ui/pages/sign_up_page.dart';
 import 'package:cinematri_app/ui/pages/splash_page.dart';
+import 'package:cinematri_app/ui/pages/success_checkout_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/detail': (context) => const DetailPage(),
         '/choose-seat': (context) => const ChooseSeatPage(),
         '/checkout': (context) => const CheckoutPage(),
+        '/success': (context) => const SuccessCheckoutPage(),
       },
     );
   }
