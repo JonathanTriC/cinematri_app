@@ -18,7 +18,9 @@ class MovieTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, '/detail');
+      },
       child: Container(
         margin: const EdgeInsets.only(
           top: 16,
