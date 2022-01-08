@@ -1,4 +1,5 @@
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -200,31 +201,18 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget submitButton() {
-        return Container(
+        return CustomButton(
           margin: const EdgeInsets.only(
             top: 50,
             bottom: 80,
           ),
-          width: 220,
-          height: 55,
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            },
-            style: TextButton.styleFrom(
-              backgroundColor: kPurpleColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(17),
-              ),
-            ),
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: medium,
-              ),
-            ),
-          ),
+          title: 'Get Started',
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              '/main',
+            );
+          },
         );
       }
 

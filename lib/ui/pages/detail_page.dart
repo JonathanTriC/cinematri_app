@@ -1,4 +1,5 @@
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:cinematri_app/ui/widget/photo_item.dart';
 import 'package:flutter/material.dart';
 
@@ -199,26 +200,10 @@ class DetailPage extends StatelessWidget {
                           ),
                         ),
                         // NOTE: BOOK BUTTON
-                        // ignore: sized_box_for_whitespace
-                        Container(
+                        CustomButton(
+                          title: 'Book Now',
                           width: 170,
-                          height: 55,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: kPurpleColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(17),
-                              ),
-                            ),
-                            child: Text(
-                              'Book Now',
-                              style: whiteTextStyle.copyWith(
-                                fontSize: 18,
-                                fontWeight: medium,
-                              ),
-                            ),
-                          ),
+                          onPressed: () {},
                         ),
                       ],
                     ),

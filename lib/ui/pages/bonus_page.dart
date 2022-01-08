@@ -1,4 +1,5 @@
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class BonusPage extends StatelessWidget {
@@ -135,31 +136,15 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget submitButton() {
-      return Container(
+      return CustomButton(
         margin: const EdgeInsets.only(
           top: 50,
         ),
+        title: 'Start Watching Now',
         width: 220,
-        height: 55,
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(
-                context, '/main', (route) => false);
-          },
-          style: TextButton.styleFrom(
-            backgroundColor: kPurpleColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(17),
-            ),
-          ),
-          child: Text(
-            'Start Watching Now',
-            style: whiteTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
-            ),
-          ),
-        ),
+        onPressed: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
+        },
       );
     }
 

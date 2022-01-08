@@ -1,4 +1,5 @@
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class GetStarted extends StatelessWidget {
@@ -42,34 +43,19 @@ class GetStarted extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Container(
+                CustomButton(
                   margin: const EdgeInsets.only(
                     top: 50,
                     bottom: 80,
                   ),
+                  title: 'Get Started',
                   width: 220,
-                  height: 55,
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/sign-up',
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: kPurpleColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(17),
-                      ),
-                    ),
-                    child: Text(
-                      'Get Started',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 18,
-                        fontWeight: medium,
-                      ),
-                    ),
-                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/sign-up',
+                    );
+                  },
                 ),
               ],
             ),
