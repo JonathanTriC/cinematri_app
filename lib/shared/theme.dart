@@ -10,6 +10,7 @@ Color kBlackColor = const Color(0xff1F1449);
 Color kPurpleColor = const Color(0xff5C40CC);
 Color kDarkBlueColor = const Color(0xff091439);
 Color kGreyColor = const Color(0xff9698A9);
+Color kGoldColor = const Color(0xffFFC300);
 Color kGreenColor = const Color(0xff06FF00);
 Color kRedColor = const Color(0xffef233c);
 Color kAvailableColor = const Color(0xffE0D9FF);

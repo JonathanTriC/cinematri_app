@@ -406,7 +406,9 @@ class ChooseSeatPage extends StatelessWidget {
     Widget checkoutButton() {
       return CustomButton(
         title: 'Continue to Checkout',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/checkout');
+        },
         margin: const EdgeInsets.only(
           top: 30,
           bottom: 46,
