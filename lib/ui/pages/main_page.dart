@@ -1,15 +1,28 @@
+import 'package:cinematri_app/cubit/page_cubit.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/pages/home_page.dart';
 import 'package:cinematri_app/ui/widget/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget buildContent() {
-      return const HomePage();
+    Widget buildContent(int currentIndex) {
+      switch (currentIndex) {
+        case 0:
+          return const HomePage();
+        case 1:
+          return const HomePage();
+        case 2:
+          return const HomePage();
+        case 3:
+          return const HomePage();
+        default:
+          return const HomePage();
+      }
     }
 
     Widget customBottomNavigation() {
@@ -32,16 +45,19 @@ class MainPage extends StatelessWidget {
             children: const [
               CustomBottomNavigationItem(
                 imageUrl: 'assets/icon_home.png',
-                isSelected: true,
+                index: 0,
               ),
               CustomBottomNavigationItem(
                 imageUrl: 'assets/icon_transaction.png',
+                index: 1,
               ),
               CustomBottomNavigationItem(
                 imageUrl: 'assets/icon_wallet.png',
+                index: 2,
               ),
               CustomBottomNavigationItem(
                 imageUrl: 'assets/icon_settings.png',
+                index: 3,
               ),
             ],
           ),
@@ -49,14 +65,18 @@ class MainPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: kPrimaryColor,
-      body: Stack(
-        children: [
-          buildContent(),
-          customBottomNavigation(),
-        ],
-      ),
+    return BlocBuilder<PageCubit, int>(
+      builder: (context, currentIndex) {
+        return Scaffold(
+          backgroundColor: kPrimaryColor,
+          body: Stack(
+            children: [
+              buildContent(currentIndex),
+              customBottomNavigation(),
+            ],
+          ),
+        );
+      },
     );
   }
 }
