@@ -15,6 +15,7 @@ class GetStarted extends StatelessWidget {
             height: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: AssetImage(
                   'assets/image_get_started.png',
                 ),

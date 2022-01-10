@@ -56,8 +56,7 @@ class SignUpPage extends StatelessWidget {
       Widget submitButton() {
         return CustomButton(
           margin: const EdgeInsets.only(
-            top: 50,
-            bottom: 80,
+            top: 30,
           ),
           title: 'Get Started',
           onPressed: () {

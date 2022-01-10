@@ -28,12 +28,13 @@ class CheckoutPage extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 52,
+            height: 50,
             margin: const EdgeInsets.only(
               top: 30,
             ),
             decoration: const BoxDecoration(
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: AssetImage(
                   'assets/image_ticket_top.png',
                 ),
@@ -45,7 +46,6 @@ class CheckoutPage extends StatelessWidget {
               horizontal: 20,
               vertical: 30,
             ),
-            width: 340,
             decoration: BoxDecoration(
               color: kGoldColor,
             ),
@@ -167,9 +167,10 @@ class CheckoutPage extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            height: 52,
+            height: 50,
             decoration: const BoxDecoration(
               image: DecorationImage(
+                fit: BoxFit.cover,
                 image: AssetImage(
                   'assets/image_ticket_bottom.png',
                 ),
