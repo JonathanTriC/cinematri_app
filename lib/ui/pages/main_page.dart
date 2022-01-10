@@ -1,6 +1,7 @@
 import 'package:cinematri_app/cubit/page_cubit.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/pages/home_page.dart';
+import 'package:cinematri_app/ui/pages/transaction_page.dart';
 import 'package:cinematri_app/ui/widget/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatelessWidget {
         case 0:
           return const HomePage();
         case 1:
-          return const HomePage();
+          return const TransactionPage();
         case 2:
           return const HomePage();
         case 3:
