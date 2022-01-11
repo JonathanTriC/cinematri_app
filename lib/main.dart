@@ -1,3 +1,4 @@
+import 'package:cinematri_app/cubit/auth_cubit.dart';
 import 'package:cinematri_app/cubit/page_cubit.dart';
 import 'package:cinematri_app/ui/pages/bonus_page.dart';
 import 'package:cinematri_app/ui/pages/checkout_page.dart';
@@ -29,13 +30,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => PageCubit(),
         ),
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const SplashPage(),
           '/get-started': (context) => const GetStarted(),
-          '/sign-up': (context) => const SignUpPage(),
+          '/sign-up': (context) => SignUpPage(),
           '/bonus': (context) => const BonusPage(),
           '/main': (context) => const MainPage(),
           '/detail': (context) => const DetailPage(),
