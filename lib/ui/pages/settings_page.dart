@@ -25,37 +25,45 @@ class SettingsPage extends StatelessWidget {
     }
 
     Widget profileDetail() {
-      return Center(
-        child: Container(
-          margin: const EdgeInsets.only(
-            top: 50,
-          ),
-          child: Column(
-            children: [
-              Container(
-                width: 150,
-                height: 150,
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Center(
+              child: Container(
                 margin: const EdgeInsets.only(
-                  bottom: 30,
+                  top: 50,
                 ),
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/image_profile.png',
+                child: Column(
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 150,
+                      margin: const EdgeInsets.only(
+                        bottom: 30,
+                      ),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/image_profile.png',
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
+                    Text(
+                      state.user.name,
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 24,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                'Jonathan Tri',
-                style: whiteTextStyle.copyWith(
-                  fontSize: 24,
-                  fontWeight: semiBold,
-                ),
-              ),
-            ],
-          ),
-        ),
+            );
+          } else {
+            return const SizedBox();
+          }
+        },
       );
     }
 

@@ -1,6 +1,8 @@
+import 'package:cinematri_app/cubit/auth_cubit.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({Key? key}) : super(key: key);
@@ -8,100 +10,108 @@ class BonusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget bonusCard() {
-      return Stack(
-        children: [
-          Container(
-            width: 300,
-            height: 211,
-            padding: EdgeInsets.all(defaultMargin),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/image_card.png',
-                ),
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Stack(
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Name',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 14,
-                              fontWeight: light,
-                            ),
-                          ),
-                          Text(
-                            'Jonathan Tri',
-                            style: whiteTextStyle.copyWith(
-                              fontSize: 20,
-                              fontWeight: medium,
-                            ),
-                          ),
-                        ],
+                Container(
+                  width: 300,
+                  height: 211,
+                  padding: EdgeInsets.all(defaultMargin),
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/image_card.png',
                       ),
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 24,
-                          height: 24,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'assets/icon_logo.png',
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          'Pay',
-                          style: whiteTextStyle.copyWith(
-                            fontSize: 16,
-                            fontWeight: medium,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 41,
-                ),
-                Expanded(
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Balance',
-                        style: whiteTextStyle.copyWith(
-                          fontSize: 14,
-                          fontWeight: light,
-                        ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Name',
+                                  style: whiteTextStyle.copyWith(
+                                    fontSize: 14,
+                                    fontWeight: light,
+                                  ),
+                                ),
+                                Text(
+                                  state.user.name,
+                                  style: whiteTextStyle.copyWith(
+                                    fontSize: 20,
+                                    fontWeight: medium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      'assets/icon_logo.png',
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 6,
+                              ),
+                              Text(
+                                'Pay',
+                                style: whiteTextStyle.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: medium,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      Text(
-                        'IDR 1.000.000',
-                        style: whiteTextStyle.copyWith(
-                          fontSize: 20,
-                          fontWeight: medium,
+                      const SizedBox(
+                        height: 41,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Balance',
+                              style: whiteTextStyle.copyWith(
+                                fontSize: 14,
+                                fontWeight: light,
+                              ),
+                            ),
+                            Text(
+                              'IDR 1.000.000',
+                              style: whiteTextStyle.copyWith(
+                                fontSize: 20,
+                                fontWeight: medium,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
+            );
+          } else {
+            return const SizedBox();
+          }
+        },
       );
     }
 

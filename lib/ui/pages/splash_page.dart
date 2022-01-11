@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:cinematri_app/cubit/auth_cubit.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -23,6 +25,7 @@ class _SplashPageState extends State<SplashPage> {
       } else {
         // ignore: avoid_print
         print(user.email);
+        context.read<AuthCubit>().getCurrentUser(user.uid);
         Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
       }
     });
