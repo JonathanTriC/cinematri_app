@@ -1,4 +1,5 @@
 import 'package:cinematri_app/cubit/auth_cubit.dart';
+import 'package:cinematri_app/cubit/page_cubit.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -78,8 +79,9 @@ class SettingsPage extends StatelessWidget {
               ),
             );
           } else if (state is AuthInitial) {
+            context.read<PageCubit>().setPage(0);
             Navigator.pushNamedAndRemoveUntil(
-                context, '/sign-up', (route) => false);
+                context, '/sign-in', (route) => false);
           }
         },
         builder: (context, state) {
