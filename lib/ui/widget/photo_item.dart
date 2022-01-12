@@ -17,7 +17,7 @@ class PhotoItem extends StatelessWidget {
           18,
         ),
         image: DecorationImage(
-          image: AssetImage(
+          image: NetworkImage(
             imageUrl,
           ),
         ),

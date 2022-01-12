@@ -1,9 +1,9 @@
 import 'package:cinematri_app/cubit/auth_cubit.dart';
+import 'package:cinematri_app/cubit/movie_cubit.dart';
 import 'package:cinematri_app/cubit/page_cubit.dart';
 import 'package:cinematri_app/ui/pages/bonus_page.dart';
 import 'package:cinematri_app/ui/pages/checkout_page.dart';
 import 'package:cinematri_app/ui/pages/choose_seat_page.dart';
-import 'package:cinematri_app/ui/pages/detail_page.dart';
 import 'package:cinematri_app/ui/pages/get_started_page.dart';
 import 'package:cinematri_app/ui/pages/main_page.dart';
 import 'package:cinematri_app/ui/pages/sign_in_page.dart';
@@ -34,6 +34,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(),
         ),
+        BlocProvider(
+          create: (context) => MovieCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -44,7 +47,6 @@ class MyApp extends StatelessWidget {
           '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => const BonusPage(),
           '/main': (context) => const MainPage(),
-          '/detail': (context) => const DetailPage(),
           '/choose-seat': (context) => const ChooseSeatPage(),
           '/checkout': (context) => const CheckoutPage(),
           '/success': (context) => const SuccessCheckoutPage(),

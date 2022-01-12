@@ -1,25 +1,26 @@
+import 'package:cinematri_app/models/movie_model.dart';
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieTile extends StatelessWidget {
-  final String imageUrl;
-  final String name;
-  final String genre;
-  final double rating;
+  final MovieModel movie;
 
-  const MovieTile({
+  const MovieTile(
+    this.movie, {
     Key? key,
-    required this.imageUrl,
-    required this.name,
-    required this.genre,
-    this.rating = 0.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail');
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailPage(movie),
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(
@@ -44,8 +45,8 @@ class MovieTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage(
-                    imageUrl,
+                  image: NetworkImage(
+                    movie.imageUrl,
                   ),
                 ),
               ),
@@ -55,7 +56,7 @@ class MovieTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    movie.name,
                     style: whiteTextStyle.copyWith(
                       fontSize: 18,
                       fontWeight: medium,
@@ -66,7 +67,7 @@ class MovieTile extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    genre,
+                    movie.genre,
                     style: greyTextStyle.copyWith(
                       fontWeight: light,
                     ),
@@ -94,7 +95,7 @@ class MovieTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  rating.toString(),
+                  movie.rating.toString(),
                   style: whiteTextStyle.copyWith(
                     fontWeight: medium,
                   ),

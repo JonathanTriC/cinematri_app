@@ -1,10 +1,13 @@
+import 'package:cinematri_app/models/movie_model.dart';
 import 'package:cinematri_app/shared/theme.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:cinematri_app/ui/widget/photo_item.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({Key? key}) : super(key: key);
+  final MovieModel movie;
+  const DetailPage(this.movie, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +15,11 @@ class DetailPage extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 463,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage(
-              'assets/image_movie1.png',
+            image: NetworkImage(
+              movie.imageUrl,
             ),
           ),
         ),
@@ -59,7 +62,7 @@ class DetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Spider-Man: No Way Home',
+                          movie.name,
                           style: whiteTextStyle.copyWith(
                             fontSize: 24,
                             fontWeight: semiBold,
@@ -67,7 +70,7 @@ class DetailPage extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Action',
+                          movie.genre,
                           style: whiteTextStyle.copyWith(
                             fontSize: 16,
                             fontWeight: light,
@@ -93,7 +96,7 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '4.8',
+                        movie.rating.toString(),
                         style: whiteTextStyle.copyWith(
                           fontWeight: medium,
                         ),
@@ -153,15 +156,15 @@ class DetailPage extends StatelessWidget {
                     height: 6,
                   ),
                   Row(
-                    children: const [
+                    children: [
                       PhotoItem(
-                        imageUrl: 'assets/image_cast1.png',
+                        imageUrl: movie.cast1,
                       ),
                       PhotoItem(
-                        imageUrl: 'assets/image_cast2.png',
+                        imageUrl: movie.cast2,
                       ),
                       PhotoItem(
-                        imageUrl: 'assets/image_cast3.png',
+                        imageUrl: movie.cast3,
                       ),
                     ],
                   ),
@@ -181,7 +184,11 @@ class DetailPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'IDR 50.000',
+                                NumberFormat.currency(
+                                  locale: 'id',
+                                  symbol: 'IDR ',
+                                  decimalDigits: 0,
+                                ).format(movie.price),
                                 style: whiteTextStyle.copyWith(
                                   fontSize: 18,
                                   fontWeight: medium,
