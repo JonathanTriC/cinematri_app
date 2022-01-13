@@ -1,5 +1,6 @@
 import 'package:cinematri_app/models/movie_model.dart';
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/pages/choose_seat_page.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:cinematri_app/ui/widget/photo_item.dart';
 import 'package:flutter/material.dart';
@@ -211,9 +212,11 @@ class DetailPage extends StatelessWidget {
                           title: 'Book Now',
                           width: 170,
                           onPressed: () {
-                            Navigator.pushNamed(
+                            Navigator.push(
                               context,
-                              '/choose-seat',
+                              MaterialPageRoute(
+                                builder: (context) => ChooseSeatPage(movie),
+                              ),
                             );
                           },
                         ),
