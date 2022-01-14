@@ -72,6 +72,7 @@ class MainPage extends StatelessWidget {
       builder: (context, currentIndex) {
         return Scaffold(
           backgroundColor: kPrimaryColor,
+          // body: const HomePage(),
           body: Stack(
             children: [
               buildContent(currentIndex),

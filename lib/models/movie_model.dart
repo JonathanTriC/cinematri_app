@@ -36,6 +36,18 @@ class MovieModel extends Equatable {
         price: json['price'],
       );
 
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'genre': genre,
+        'imageUrl': imageUrl,
+        'cast1': cast1,
+        'cast2': cast2,
+        'cast3': cast3,
+        'rating': rating,
+        'price': price,
+      };
+
   @override
   List<Object?> get props => [
         id,

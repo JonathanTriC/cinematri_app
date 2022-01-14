@@ -2,7 +2,9 @@
 
 import 'package:cinematri_app/cubit/seat_cubit.dart';
 import 'package:cinematri_app/models/movie_model.dart';
+import 'package:cinematri_app/models/transaction_model.dart';
 import 'package:cinematri_app/shared/theme.dart';
+import 'package:cinematri_app/ui/pages/checkout_page.dart';
 import 'package:cinematri_app/ui/widget/custom_button.dart';
 import 'package:cinematri_app/ui/widget/seat_item.dart';
 import 'package:flutter/material.dart';
@@ -425,15 +427,35 @@ class ChooseSeatPage extends StatelessWidget {
     }
 
     Widget checkoutButton() {
-      return CustomButton(
-        title: 'Continue to Checkout',
-        onPressed: () {
-          Navigator.pushNamed(context, '/checkout');
+      return BlocBuilder<SeatCubit, List<String>>(
+        builder: (context, state) {
+          return CustomButton(
+            title: 'Continue to Checkout',
+            onPressed: () {
+              int price = movie.price * state.length;
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CheckoutPage(
+                    TransactionModel(
+                      movie: movie,
+                      amountOfPerson: state.length,
+                      selectedSeat: state.join(', '),
+                      tax: 0.15,
+                      price: price,
+                      grandTotal: price + (price * 0.15).toInt(),
+                    ),
+                  ),
+                ),
+              );
+            },
+            margin: const EdgeInsets.only(
+              top: 30,
+              bottom: 46,
+            ),
+          );
         },
-        margin: const EdgeInsets.only(
-          top: 30,
-          bottom: 46,
-        ),
       );
     }
 
